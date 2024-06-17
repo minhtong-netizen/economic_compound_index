@@ -17,6 +17,16 @@
 + Cột 'Section': mã ngành
 + Cột 'Patents': số lượng bằng sáng chế theo mã ngành của từng thành phố (dữ liệu được sinh ngẫu nhiên)
 
+## Chú thích các ngành theo chuẩn IPC
+A: CÁC NHU CẦU CỦA ĐỜI SỐNG CON NGƯỜI\
+B: CÁC QUY TRÌNH CÔNG NGHỆ; GIAO THÔNG VẬN TẢI\
+C: HOÁ HỌC; LUYỆN KIM\
+D: DỆT; GIẤY\
+E: XÂY DỰNG; MỎ\
+F: CƠ KHÍ; CHIẾU SÁNG; CẤP NHIỆT; VŨ KHÍ; KỸ THUẬT NỔ\
+G: VẬT LÝ\
+H: ĐIỆN
+
 # Đếm số lượng bằng sáng chế theo từng ngành của thành phố Hồ Chí Minh
 + File tính toán: section_count.py
 
