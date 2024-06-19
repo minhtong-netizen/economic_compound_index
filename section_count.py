@@ -34,5 +34,5 @@ if __name__ == '__main__':
 
     plt.xlabel('Ngành')
     plt.ylabel('Số lượng bằng sáng chế')
-    plt.title('Số lượng bằng sáng chế theo ngành')
+    plt.title('Số lượng bằng sáng chế theo ngành của thành phố Hồ Chí Minh')
     plt.show()
