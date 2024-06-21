@@ -1,10 +1,12 @@
 # economic_compound_index
+Tống Đức Minh 20216855
 
 # Yêu Cầu
 + Tải các package (có thể sử dụng qua pip)
 + `pip install pandas`
 + `pip install numpy`
 + `pip install economic_complexity`
++ `pip install matplotlib`
 
 # Bộ Dữ Liệu
 ## Bằng sáng chế thành phố Hồ Chí Minh
@@ -33,5 +35,8 @@ H: ĐIỆN
 # Tính chỉ số Relatedness giữa các ngành của thành phố Hồ Chí Minh
 + File tính toán: section_relatedness.py
 
-# Tính chỉ số ECI (Economic Complexity Index) giữa các thành phố
+# Tính chỉ số ECI (Economic Complexity Index) giữa các thành phố và PCI (Product Complexity Index) giữa các ngành
 + File tính toán: eci_calculate.py
+
+# Tính chỉ số Relatedness giữa các thành phố và các ngành
++ File tính toán: section_city_relatedness.py

@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 # Đọc dữ liệu từ file Excel
-file_path = 'data_sample.xlsx'  # Thay bằng đường dẫn thực tế tới tệp Excel
+file_path = 'data_sample.xlsx'
 df = pd.read_excel(file_path)
 
 # Chuyển đổi pivot table để tính RCA
@@ -20,13 +20,9 @@ phi = ec.proximity(rca)
 # relatedness
 relatedness = ec.relatedness(rca, proximities=phi)
 
-# display
-print(relatedness)
-
-# Chuyển đổi dữ liệu relatedness thành DataFrame để dễ dàng xem kết quả
 relatedness_df = pd.DataFrame(relatedness)
 
-# Vẽ biểu đồ heatmap
+# Vẽ biểu đồ
 plt.figure(figsize=(12, 8))
 sns.heatmap(relatedness_df, annot=True, cmap='coolwarm')
 plt.title('Relatedness between Cities and Sectors')

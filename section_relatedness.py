@@ -3,8 +3,8 @@ import numpy as np
 
 from utils import extract_sectors, plot_heatmap
 
-# Đọc dữ liệu từ tệp Excel
-file_path = 'Sangche_HCM_Items_51_1000.xlsx'  # Thay bằng đường dẫn thực tế tới tệp Excel
+# Đọc dữ liệu từ Excel
+file_path = 'Sangche_HCM_Items_51_1000.xlsx'
 df = pd.read_excel(file_path)
 
 # Xây dựng ma trận đồng xuất hiện
@@ -31,15 +31,6 @@ for i in range(len(sectors)):
             relatedness_jaccard[i][j] = co_occurrence_matrix[i][j] / (
                         co_occurrence_matrix[i][i] + co_occurrence_matrix[j][j] - co_occurrence_matrix[i][j])
 
-# Tính Cosine Similarity
-relatedness_cosine = np.zeros((len(sectors), len(sectors)))
-
-for i in range(len(sectors)):
-    for j in range(len(sectors)):
-        if co_occurrence_matrix[i][j] > 0:
-            relatedness_cosine[i][j] = co_occurrence_matrix[i][j] / (
-                        np.sqrt(co_occurrence_matrix[i][i]) * np.sqrt(co_occurrence_matrix[j][j]))
-
 # Tính Association Strength
 relatedness_association = np.zeros((len(sectors), len(sectors)))
 
@@ -59,24 +50,17 @@ for i in range(len(sectors)):
         if co_occurrence_matrix[i][j] > 0:
             relatedness_prob[i][j] = co_occurrence_matrix[i][j] / total_occurrences
 
-# Chuyển đổi ma trận thành DataFrame để dễ dàng xem kết quả
 relatedness_jaccard_df = pd.DataFrame(relatedness_jaccard, index=list(sectors), columns=list(sectors))
-relatedness_cosine_df = pd.DataFrame(relatedness_cosine, index=list(sectors), columns=list(sectors))
 relatedness_association_df = pd.DataFrame(relatedness_association, index=list(sectors), columns=list(sectors))
 relatedness_prob_df = pd.DataFrame(relatedness_prob, index=list(sectors), columns=list(sectors))
 
-# Hiển thị các ma trận relatedness
 print("Jaccard Similarity:")
 print(relatedness_jaccard_df)
-print("\nCosine Similarity:")
-print(relatedness_cosine_df)
 print("\nAssociation Strength:")
 print(relatedness_association_df)
 print("\nProbability:")
 print(relatedness_prob_df)
 
-# Vẽ heatmap cho từng ma trận relatedness
 plot_heatmap(relatedness_jaccard_df, "Jaccard Similarity")
-plot_heatmap(relatedness_cosine_df, "Cosine Similarity")
 plot_heatmap(relatedness_association_df, "Association Strength")
 plot_heatmap(relatedness_prob_df, "Probability")
